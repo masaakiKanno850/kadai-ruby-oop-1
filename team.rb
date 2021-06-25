@@ -5,22 +5,22 @@ class Team
     
     def initialize(name:,win:,lose:,draw:)
         
-        self.name = name
-        self.win = win
-        self.lose = lose
-        self.draw = draw
+        @name = name
+        @win = win
+        @lose = lose
+        @draw = draw
      
     
     end 
-        def calc_win_rate(sum)
+        def calc_win_rate
            
-            self.sum = sum
+           @win / (@lose + @win).to_f
         
         end
        
             def show_team_result
               
-                puts "#{self.name} の2020年の成績は #{self.win}勝 #{self.lose}敗 #{self.draw}分、勝率は#{self.sum}です。" 
+                puts "#{@name} の2020年の成績は #{@win}勝 #{@lose}敗 #{@draw}分、勝率は#{self.calc_win_rate}です。" 
     
             end
 end
@@ -33,13 +33,6 @@ bayStars = Team.new(name: "BayStars",win: 56,lose: 58,draw: 6)
 carp = Team.new(name: "Carp",win: 52,lose: 56,draw: 12)
 swallows = Team.new(name: "Swa11ows",win: 41,lose: 69,draw: 10)
 
-#calc_win_rate　メソッドの呼び出し
-giants.calc_win_rate(67/(45+67).to_f)
-tigers.calc_win_rate(60/(53+60).to_f)
-dragons.calc_win_rate(60/(55+60).to_f)
-bayStars.calc_win_rate(56/(58+56).to_f)
-carp.calc_win_rate(52/(52+56).to_f)
-swallows.calc_win_rate(41/(69+41).to_f)
 
 #結果出力
 giants.show_team_result
